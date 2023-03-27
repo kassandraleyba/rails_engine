@@ -1,0 +1,253 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/config/environment.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          null,
+          1
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/config/application.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/config/boot.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/config/environments/test.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/config/initializers/cors.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/config/initializers/filter_parameter_logging.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/config/initializers/inflections.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/factories/merchants.rb": {
+        "lines": [
+          1,
+          1,
+          4,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/config/routes.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/merchant.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/requests/api/v1/merchants_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/controllers/api/v1/merchants_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1679945513
+  }
+}
