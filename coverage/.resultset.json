@@ -235,7 +235,7 @@
         "lines": [
           1,
           1,
-          4,
+          5,
           null,
           null
         ]
@@ -429,12 +429,32 @@
           3,
           null,
           null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
           null
         ]
       },
       "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
           1,
+          1,
+          1,
+          null,
+          null,
           1,
           1,
           null,
@@ -448,6 +468,6 @@
         ]
       }
     },
-    "timestamp": 1679948679
+    "timestamp": 1679949476
   }
 }
