@@ -44,6 +44,7 @@ group :development, :test do
   gem "net-http"
   gem "factory_bot_rails"
   gem "faker"
+  gem "simplecov"
 end
 
 group :development do
