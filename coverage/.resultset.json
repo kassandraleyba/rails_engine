@@ -177,11 +177,83 @@
           null
         ]
       },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/factories/customers.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/factories/invoice_items.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/factories/invoices.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/factories/items.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/factories/merchants.rb": {
         "lines": [
           1,
           1,
-          4,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/factories/transactions.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
           null,
           null
         ]
@@ -202,8 +274,12 @@
           null
         ]
       },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/merchant.rb": {
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/customer.rb": {
         "lines": [
+          1,
+          1,
+          1,
+          1,
           1,
           null
         ]
@@ -215,39 +291,123 @@
           null
         ]
       },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/requests/api/v1/merchants_request_spec.rb": {
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/models/invoice_item_spec.rb": {
         "lines": [
           1,
           null,
           1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
+          2,
+          2,
           null
         ]
       },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/controllers/api/v1/merchants_controller.rb": {
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/invoice_item.rb": {
         "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/models/invoice_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          null,
+          2,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/invoice.rb": {
+        "lines": [
+          1,
+          1,
+          1,
           1,
           1,
           1,
           null,
+          1,
           null
         ]
       },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/controllers/application_controller.rb": {
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/models/item_spec.rb": {
         "lines": [
+          1,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          2,
+          2,
+          2,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/item.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/models/merchant_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          2,
+          2,
+          2,
+          null,
+          2,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/merchant.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/spec/models/transaction_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          2,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/transaction.rb": {
+        "lines": [
+          1,
           1,
           null
         ]
       }
     },
-    "timestamp": 1679945513
+    "timestamp": 1679948398
   }
 }
