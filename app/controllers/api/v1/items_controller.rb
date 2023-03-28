@@ -10,16 +10,22 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
-    # if item.save
-    render json: ItemSerializer.new(Item.last), status: 201
-    # else
-      # render json: {error: "Item not created"}, status: 400
-    # end
+    item = Item.new(item_params)
+    if item.save
+      render json: ItemSerializer.new(item), status: 201
+    else
+      render json: ErrorSerializer.new(item).serialized_json, status: 400
+    end
   end
 
   def update
-    render json: ItemSerializer.new(Item.update(params[:id], item_params))
+    item = Item.find(params[:id])
+    item.update(item_params)
+    if item.save
+      render json: ItemSerializer.new(Item.update(params[:id], item_params))
+    else
+      render json: { errors: "Invalid Update" }, status: 400
+    end
   end
 
   def destroy
