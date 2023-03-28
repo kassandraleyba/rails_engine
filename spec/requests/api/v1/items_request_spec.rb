@@ -69,11 +69,15 @@ describe "Items API" do
     item = Item.find_by(id: id)
 
     expect(response).to be_successful
-    expect(item.name).to_not eq(previous_name)
-    expect(item.name).to eq("New Item Name")
+
+    expect(item[:name]).to_not eq(previous_name)
+    expect(item[:name]).to eq("New Item Name")
+    expect(item[:description]).to eq(Item.last.description)
+    expect(item[:unit_price]).to eq(Item.last.unit_price)
+    expect(item[:merchant_id]).to eq(Item.last.merchant_id)
   end
 
-  xit "can destroy an item" do
+  it "can destroy an item" do
     item = create(:item)
 
     expect(Item.count).to eq(1)
@@ -85,7 +89,7 @@ describe "Items API" do
     expect{Item.find(item.id)}.to raise_error(ActiveRecord::RecordNotFound)
   end
 
-  xit "can get the merchant associated with an item" do
+  it "can get the merchant associated with an item" do
     merchant = create(:merchant)
     item = create(:item, merchant_id: merchant.id)
 
@@ -93,12 +97,13 @@ describe "Items API" do
 
     expect(response).to be_successful
 
-    merchant = JSON.parse(response.body, symbolize_names: true)
+    parsed_data = JSON.parse(response.body, symbolize_names: true)
 
-    expect(merchant).to have_key(:id)
-    expect(merchant[:id]).to be_an(Integer)
-
-    expect(merchant).to have_key(:name)
-    expect(merchant[:name]).to be_a(String)
+    expect(parsed_data[:data]).to be_a Hash
+    expect(parsed_data[:data].size).to eq(3)
+    expect(parsed_data[:data].keys).to eq([:id, :type, :attributes])
+    expect(parsed_data[:data][:id]).to eq(Merchant.first.id.to_s)
+    expect(parsed_data[:data][:type]).to eq("merchant")
+    expect(parsed_data[:data][:attributes]).to eq({name: Merchant.first.name})
   end
 end
