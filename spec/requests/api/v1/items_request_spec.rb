@@ -77,6 +77,24 @@ describe "Items API" do
     expect(item[:merchant_id]).to eq(Item.last.merchant_id)
   end
 
+  it "errors when updating an item with invalid params" do
+    id = create(:item).id
+    previous_name = Item.last.name
+    item_params = { name: "" }
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    patch "/api/v1/items/#{id}", headers: headers, params: JSON.generate({item: item_params})
+    item = Item.find_by(id: id)
+
+    expect(response).to_not be_successful
+
+    expect(response).to have_http_status(400)
+    expect(response).to have_http_status(:bad_request)
+    
+    error = JSON.parse(response.body, symbolize_names: true)
+    expect(error[:errors]).to eq("Invalid Update")
+  end
+
   it "can destroy an item" do
     item = create(:item)
 
