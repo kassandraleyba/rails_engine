@@ -10,7 +10,9 @@ Rails.application.routes.draw do
         get "items", to: "merchant/items#index"
       end
 
-      resources :items, only: [:index, :show, :create, :update, :destroy]
+      resources :items, only: [:index, :show, :create, :update, :destroy] do
+        get "merchant", to: "item/merchant#show"
+      end
     end
   end
 end
