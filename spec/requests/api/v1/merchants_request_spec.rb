@@ -67,6 +67,24 @@ describe "Merchants API" do
       parsed_data = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to be_successful
+
+      expect(response).to be_successful
+      expect(parsed_data[:data]).to be_a Array
+      expect(parsed_data[:data].size).to eq(2)
+      expect(parsed_data[:data][0].keys).to eq([:id, :type, :attributes])
+      expect(parsed_data[:data][0][:id]).to eq(merchant2.id.to_s)
+    end
+
+    it "cannot find merchants by name if it doesn't exist" do
+      merchant1 = create(:merchant, name: "yogi tea")
+
+      get "/api/v1/items/find?name=coffee"
+      
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+      expect(parsed_data[:errors]).to eq("Invalid Search") 
     end
   end
 end
