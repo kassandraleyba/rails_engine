@@ -22,9 +22,9 @@ class Item < ApplicationRecord
     where("unit_price >= ?", query).order(:name)
   end
 
-  # def self.search_max_price
-
-  # end
+  def self.search_max_price(query)
+    where("unit_price <= ?", query).order(:name)
+  end
 
   # def self.search_min_max_price
 
