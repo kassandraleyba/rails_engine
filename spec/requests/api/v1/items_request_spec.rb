@@ -142,5 +142,18 @@ describe "Items API" do
       expect(parsed_data[:data].keys).to eq([:id, :type, :attributes])
       expect(parsed_data[:data][:id]).to eq(item1.id.to_s)
     end
+
+    it "cannot find an item by name if it doesn't exist" do
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", merchant_id: merchant.id)
+
+      get "/api/v1/items/find?name=coffee"
+      
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+      expect(parsed_data[:errors]).to eq("Invalid Search") 
+    end
   end
 end
