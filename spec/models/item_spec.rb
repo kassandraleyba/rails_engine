@@ -16,9 +16,16 @@ RSpec.describe Item, type: :model do
       item2 = create(:item, name: "coffee", merchant_id: merchant.id)
       item3 = create(:item, name: "matcha", merchant_id: merchant.id)
 
-      expect(Item.search_by_name("tea")).to eq([item1])
-      expect(Item.search_by_name("E")).to eq([item2])
-      expect(Item.search_by_name("a")).to eq([item3])
+      expect(Item.search_by_name("tea")).to eq(item1)
+      expect(Item.search_by_name("E")).to eq(item2)
+      expect(Item.search_by_name("a")).to eq(item3)
+    end
+
+    it "#cannot find an item by name if it doesn't exist" do
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", merchant_id: merchant.id)
+
+      expect(Item.search_by_name("coffee")).to_not eq([item1])
     end
   end
 end

@@ -17,4 +17,16 @@ class Item < ApplicationRecord
     # ? is a placeholder for the query
     # % is a wildcard, it matches any number of characters (also a partial)
   end
+
+  # def self.search_min_price
+
+  # end
+
+  # def self.search_max_price
+
+  # end
+
+  # def self.search_min_max_price
+
+  # end
 end
