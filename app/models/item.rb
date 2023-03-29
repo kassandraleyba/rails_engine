@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   validates :unit_price, presence: true
 
   def self.search_by_name(query)
-    where("name ILIKE ?", "%#{query}%").order(name: :asc).first
+    where("name ILIKE ?", "%#{query}%").order(:name).first
     # order by name alphabetically
     # can't do limit(1) because it adds into an array
 

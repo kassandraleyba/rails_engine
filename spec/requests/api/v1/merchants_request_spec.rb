@@ -55,4 +55,18 @@ describe "Merchants API" do
                                                   merchant_id: Item.first.merchant_id})
     expect(parsed_data[:data][0][:attributes].size).to eq(4)
   end
+
+  describe "Non-RESTful API endpoints" do
+    it "can find all merchants by name" do
+      merchant1 = create(:merchant, name: "yogi tea")
+      merchant2 = create(:merchant, name: "numi tea")
+      merchant3 = create(:merchant, name: "peets coffee")
+
+      get "/api/v1/merchants/find_all?name=tea"
+
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+    end
+  end
 end
