@@ -76,6 +76,7 @@ describe "Merchants API" do
     end
 
     it "cannot find merchants by name if it doesn't exist" do
+      # this is failing in postman
       merchant1 = create(:merchant, name: "yogi tea")
 
       get "/api/v1/items/find?name=coffee"

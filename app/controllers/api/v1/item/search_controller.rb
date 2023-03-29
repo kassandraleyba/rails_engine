@@ -29,7 +29,7 @@ class Api::V1::Item::SearchController < ApplicationController
   def search_item_price_min
     item = Item.search_min_price(params[:min_price])
 
-    if item.nil?
+    if item.empty?
       render json: { errors: "Invalid Search" }
     else
       render json: ItemSerializer.new(item)
@@ -39,7 +39,7 @@ class Api::V1::Item::SearchController < ApplicationController
   def search_item_price_max
     item = Item.search_max_price(params[:max_price])
 
-    if item.nil?
+    if item.empty?
       render json: { errors: "Invalid Search" }
     else
       render json: ItemSerializer.new(item)
@@ -49,7 +49,7 @@ class Api::V1::Item::SearchController < ApplicationController
   def search_item_price_min_max
     item = Item.search_min_max_price(params[:min_price], params[:max_price])
 
-    if item.nil?
+    if item.empty?
       render json: { errors: "Invalid Search" }
     else
       render json: ItemSerializer.new(item)

@@ -144,6 +144,7 @@ describe "Items API" do
     end
 
     it "cannot find an item by name if it doesn't exist" do
+      # this is failing in postman
       merchant = create(:merchant)
       item1 = create(:item, name: "tea", merchant_id: merchant.id)
 
@@ -157,17 +158,102 @@ describe "Items API" do
     end
 
     it "can find a min price" do
+      # this is failing in postman
       merchant = create(:merchant)
       item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
       item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
       item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
 
-      get "/api/v1/items/find?min_price=2.00&max_price=3.00"
+      get "/api/v1/items/find?min_price=2.00"
 
       parsed_data = JSON.parse(response.body, symbolize_names: true)
    
       expect(response).to be_successful
       expect(parsed_data[:data]).to be_a Array
+      expect(parsed_data[:data].size).to eq(2)
+      expect(parsed_data[:data][0].keys).to eq([:id, :type, :attributes])
+    end
+
+    it "cannot find a min price if it doesn't exist" do
+      # this is failing in postman
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
+      item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
+      item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
+
+      get "/api/v1/items/find?min_price=4.00"
+
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+   
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+      expect(parsed_data[:errors]).to eq("Invalid Search") 
+    end
+    
+    it "can find a max price" do
+      # this is failing in postman
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
+      item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
+      item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
+
+      get "/api/v1/items/find?max_price=3.00"
+
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+   
+      expect(response).to be_successful
+      expect(parsed_data[:data]).to be_a Array
+      expect(parsed_data[:data].size).to eq(3)
+      expect(parsed_data[:data][0].keys).to eq([:id, :type, :attributes])
+    end
+
+    it "cannot find a max price if it doesn't exist" do
+      # this is failing in postman
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
+      item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
+      item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
+
+      get "/api/v1/items/find?max_price=0.50"
+
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+   
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+      expect(parsed_data[:errors]).to eq("Invalid Search") 
+    end
+
+    it "can find a min and max price" do
+      # this is failing in postman
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
+      item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
+      item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
+
+      get "/api/v1/items/find?min_price=1.00&max_price=3.00"
+
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+   
+      expect(response).to be_successful
+      expect(parsed_data[:data]).to be_a Array
+      expect(parsed_data[:data].size).to eq(3)
+      expect(parsed_data[:data][0].keys).to eq([:id, :type, :attributes])
+    end
+
+    it "cannot find a min and max price if it doesn't exist" do
+      # this is failing in postman
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
+      item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
+      item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
+
+      get "/api/v1/items/find?min_price=4.00&max_price=5.00"
+
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+   
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+      expect(parsed_data[:errors]).to eq("Invalid Search") 
     end
   end
 end
