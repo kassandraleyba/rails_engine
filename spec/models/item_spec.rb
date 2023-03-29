@@ -27,5 +27,22 @@ RSpec.describe Item, type: :model do
 
       expect(Item.search_by_name("coffee")).to_not eq([item1])
     end
+
+    it "#can find a min price" do
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
+      item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
+      item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
+
+      expect(Item.search_min_price(2.00)).to eq([item2, item3])
+    end
+
+    xit "can find a max price" do
+
+    end
+
+    xit "can find a min and max price" do
+
+    end
   end
 end

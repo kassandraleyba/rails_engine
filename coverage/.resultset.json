@@ -223,9 +223,9 @@
         "lines": [
           1,
           1,
-          4,
-          4,
-          4,
+          1,
+          8,
+          5,
           1,
           null,
           null
@@ -235,7 +235,7 @@
         "lines": [
           1,
           1,
-          6,
+          4,
           null,
           null
         ]
@@ -283,63 +283,6 @@
           null
         ]
       },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/merchant.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/controllers/api/v1/merchants_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null
-        ]
-      },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/serializers/merchant_serializer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
       "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/item.rb": {
         "lines": [
           1,
@@ -352,18 +295,18 @@
           1,
           null,
           1,
+          4,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          1,
           null,
           null,
           null,
@@ -376,59 +319,51 @@
           null
         ]
       },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/controllers/api/v1/merchant/items_controller.rb": {
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/application_record.rb": {
         "lines": [
           1,
           1,
-          1,
-          1,
-          null,
           null
         ]
       },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/serializers/item_serializer.rb": {
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/merchant.rb": {
         "lines": [
           1,
           1,
           1,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/controllers/api/v1/merchant/search_controller.rb": {
-        "lines": [
           1,
           1,
+          null,
           1,
+          null,
           1,
           0,
           null,
-          1,
-          null,
-          null,
           null
         ]
       },
-      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/controllers/api/v1/item/search_controller.rb": {
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/invoice_item.rb": {
         "lines": [
           1,
           1,
-          null,
-          null,
-          null,
+          1,
+          null
+        ]
+      },
+      "/Users/kassandraleyba/turing_work/3mod/projects/rails_engine/app/models/invoice.rb": {
+        "lines": [
+          1,
+          1,
+          1,
           1,
           1,
           1,
           null,
-          0,
-          null,
-          null,
+          1,
           null
         ]
       }
     },
-    "timestamp": 1680116287
+    "timestamp": 1680118254
   }
 }
