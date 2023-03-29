@@ -83,8 +83,8 @@ describe "Merchants API" do
       
       parsed_data = JSON.parse(response.body, symbolize_names: true)
 
-      expect(response).to be_successful
-      expect(response).to have_http_status(200)
+      expect(response).to_not be_successful
+      expect(response).to have_http_status(400)
       expect(parsed_data[:errors]).to eq("Invalid Search") 
     end
   end

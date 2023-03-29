@@ -13,14 +13,14 @@ class Api::V1::Item::SearchController < ApplicationController
     elsif params[:min_price] && params[:max_price]
       search_item_price_min_max
     else
-      render json: { errors: "Invalid Search" }
+      render json: { errors: "Invalid Search" }, status: 400
     end
   end
 
   def search_item_name
     item = Item.search_by_name(params[:name])
     if item.nil?
-      render json: { errors: "Invalid Search" }
+      render json: { errors: "Invalid Search" }, status: 400
     else
       render json: ItemSerializer.new(item)
     end
@@ -30,7 +30,7 @@ class Api::V1::Item::SearchController < ApplicationController
     item = Item.search_min_price(params[:min_price])
 
     if item.empty?
-      render json: { errors: "Invalid Search" }
+      render json: { errors: "Invalid Search" }, status: 400
     else
       render json: ItemSerializer.new(item)
     end
@@ -40,7 +40,7 @@ class Api::V1::Item::SearchController < ApplicationController
     item = Item.search_max_price(params[:max_price])
 
     if item.empty?
-      render json: { errors: "Invalid Search" }
+      render json: { errors: "Invalid Search" }, status: 400
     else
       render json: ItemSerializer.new(item)
     end
@@ -50,7 +50,7 @@ class Api::V1::Item::SearchController < ApplicationController
     item = Item.search_min_max_price(params[:min_price], params[:max_price])
 
     if item.empty?
-      render json: { errors: "Invalid Search" }
+      render json: { errors: "Invalid Search" }, status: 400
     else
       render json: ItemSerializer.new(item)
     end
