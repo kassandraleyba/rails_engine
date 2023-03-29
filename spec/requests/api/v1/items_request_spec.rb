@@ -156,7 +156,7 @@ describe "Items API" do
       expect(parsed_data[:errors]).to eq("Invalid Search") 
     end
 
-    it "can find a min price and max price" do
+    it "can find a min price" do
       merchant = create(:merchant)
       item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
       item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
@@ -167,7 +167,7 @@ describe "Items API" do
       parsed_data = JSON.parse(response.body, symbolize_names: true)
    
       expect(response).to be_successful
-      expect(parsed_data[:data]).to be_a Hash
+      expect(parsed_data[:data]).to be_a Array
     end
   end
 end
