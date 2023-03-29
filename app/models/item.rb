@@ -26,7 +26,7 @@ class Item < ApplicationRecord
     where("unit_price <= ?", query).order(:name)
   end
 
-  # def self.search_min_max_price
-
-  # end
+  def self.search_min_max_price(min, max)
+    where("unit_price >= ? AND unit_price <= ?", min, max).order(:name)
+  end
 end
