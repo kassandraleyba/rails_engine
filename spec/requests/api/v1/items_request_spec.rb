@@ -30,9 +30,9 @@ describe "Items API" do
     expect(parsed_data[:data].keys).to eq([:id, :type, :attributes])
     expect(parsed_data[:data][:id]).to eq(Item.first.id.to_s)
     expect(parsed_data[:data][:attributes]).to eq({name: Item.first.name, 
-                                                      description: Item.first.description, 
-                                                      unit_price: Item.first.unit_price, 
-                                                      merchant_id: Item.first.merchant_id})
+                                                  description: Item.first.description, 
+                                                  unit_price: Item.first.unit_price, 
+                                                  merchant_id: Item.first.merchant_id})
     expect(parsed_data[:data][:attributes].size).to eq(4)
   end
 
@@ -90,7 +90,7 @@ describe "Items API" do
 
     expect(response).to have_http_status(400)
     expect(response).to have_http_status(:bad_request)
-    
+
     error = JSON.parse(response.body, symbolize_names: true)
     expect(error[:errors]).to eq("Invalid Update")
   end
@@ -123,5 +123,51 @@ describe "Items API" do
     expect(parsed_data[:data][:id]).to eq(Merchant.first.id.to_s)
     expect(parsed_data[:data][:type]).to eq("merchant")
     expect(parsed_data[:data][:attributes]).to eq({name: Merchant.first.name})
+  end
+
+  describe 'Non-RESTful API endpoints' do
+    it 'can find an item by name' do
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", merchant_id: merchant.id)
+      item2 = create(:item, name: "coffee", merchant_id: merchant.id)
+      item3 = create(:item, name: "matcha", merchant_id: merchant.id)
+
+      get "/api/v1/items/find?name=tea"
+      
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+      expect(parsed_data[:data]).to be_a Hash
+      expect(parsed_data.size).to eq(1)
+      expect(parsed_data[:data].keys).to eq([:id, :type, :attributes])
+      expect(parsed_data[:data][:id]).to eq(item1.id.to_s)
+    end
+
+    it "cannot find an item by name if it doesn't exist" do
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", merchant_id: merchant.id)
+
+      get "/api/v1/items/find?name=coffee"
+      
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+      expect(parsed_data[:errors]).to eq("Invalid Search") 
+    end
+
+    it "can find a min price and max price" do
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
+      item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
+      item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
+
+      get "/api/v1/items/find?min_price=2.00&max_price=3.00"
+
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+   
+      expect(response).to be_successful
+      expect(parsed_data[:data]).to be_a Hash
+    end
   end
 end

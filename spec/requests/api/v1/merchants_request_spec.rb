@@ -55,4 +55,36 @@ describe "Merchants API" do
                                                   merchant_id: Item.first.merchant_id})
     expect(parsed_data[:data][0][:attributes].size).to eq(4)
   end
+
+  describe "Non-RESTful API endpoints" do
+    it "can find all merchants by name" do
+      merchant1 = create(:merchant, name: "yogi tea")
+      merchant2 = create(:merchant, name: "numi tea")
+      merchant3 = create(:merchant, name: "peets coffee")
+
+      get "/api/v1/merchants/find_all?name=tea"
+
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+
+      expect(response).to be_successful
+      expect(parsed_data[:data]).to be_a Array
+      expect(parsed_data[:data].size).to eq(2)
+      expect(parsed_data[:data][0].keys).to eq([:id, :type, :attributes])
+      expect(parsed_data[:data][0][:id]).to eq(merchant2.id.to_s)
+    end
+
+    it "cannot find merchants by name if it doesn't exist" do
+      merchant1 = create(:merchant, name: "yogi tea")
+
+      get "/api/v1/items/find?name=coffee"
+      
+      parsed_data = JSON.parse(response.body, symbolize_names: true)
+
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+      expect(parsed_data[:errors]).to eq("Invalid Search") 
+    end
+  end
 end
