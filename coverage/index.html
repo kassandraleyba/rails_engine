@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-03-29T11:18:09-06:00">2023-03-29T11:18:09-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-03-29T11:36:16-06:00">2023-03-29T11:36:16-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -128,7 +128,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#3ec8ca19bd0d0e4be4b7e072afb4b750789034a5" class="src_link" title="app/models/item.rb">app/models/item.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">19</td>
+            <td class="cell--number">20</td>
             <td class="cell--number">9</td>
             <td class="cell--number">9</td>
             <td class="cell--number">0</td>
@@ -1364,7 +1364,7 @@
 
             
 
-            <code class="ruby">    where(&quot;name ILIKE ?&quot;, &quot;%#{query}%&quot;).order(name: :asc).limit(1)</code>
+            <code class="ruby">    where(&quot;name ILIKE ?&quot;, &quot;%#{query}%&quot;).order(name: :asc).first</code>
           </li>
         </div>
       
@@ -1375,7 +1375,7 @@
 
             
 
-            <code class="ruby">    # we want to order by name alphabetically</code>
+            <code class="ruby">    # order by name alphabetically</code>
           </li>
         </div>
       
@@ -1386,7 +1386,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    # can&#39;t do limit(1) because it adds into an array</code>
           </li>
         </div>
       
@@ -1397,7 +1397,7 @@
 
             
 
-            <code class="ruby">    # ILIKE is case insensitive</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -1408,7 +1408,7 @@
 
             
 
-            <code class="ruby">    # LIKE is case sensitive</code>
+            <code class="ruby">    # ILIKE is case insensitive</code>
           </li>
         </div>
       
@@ -1419,7 +1419,7 @@
 
             
 
-            <code class="ruby">    # ? is a placeholder for the query</code>
+            <code class="ruby">    # LIKE is case sensitive</code>
           </li>
         </div>
       
@@ -1430,7 +1430,7 @@
 
             
 
-            <code class="ruby">    # % is a wildcard, it matches any number of characters (also a partial)</code>
+            <code class="ruby">    # ? is a placeholder for the query</code>
           </li>
         </div>
       
@@ -1441,12 +1441,23 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    # % is a wildcard, it matches any number of characters (also a partial)</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="19">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="20">
             
             
 

@@ -137,6 +137,10 @@ describe "Items API" do
       parsed_data = JSON.parse(response.body, symbolize_names: true)
 
       expect(response).to be_successful
+      expect(parsed_data[:data]).to be_a Hash
+      expect(parsed_data.size).to eq(1)
+      expect(parsed_data[:data].keys).to eq([:id, :type, :attributes])
+      expect(parsed_data[:data][:id]).to eq(item1.id.to_s)
     end
   end
 end
