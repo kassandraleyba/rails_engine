@@ -37,6 +37,15 @@ RSpec.describe Item, type: :model do
       expect(Item.search_min_price(2.00)).to eq([item2, item3])
     end
 
+    it "#cannot find a min price if it doesn't exist" do
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
+      item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
+      item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
+
+      expect(Item.search_min_price(4.00)).to_not eq([item1, item2, item3])
+    end
+
     it "#can find a max price" do
       merchant = create(:merchant)
       item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
@@ -46,6 +55,15 @@ RSpec.describe Item, type: :model do
       expect(Item.search_max_price(2.00)).to eq([item2, item1])
     end
 
+    it "#cannot find a max price if it doesn't exist" do
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
+      item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
+      item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
+
+      expect(Item.search_max_price(0.00)).to_not eq([item1, item2, item3])
+    end
+
     it "#can find a min and max price" do
       merchant = create(:merchant)
       item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
@@ -53,6 +71,15 @@ RSpec.describe Item, type: :model do
       item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
 
       expect(Item.search_min_max_price(2.00, 3.00)).to eq([item2, item3])
+    end
+
+    it "#cannot find a min and max price if it doesn't exist" do
+      merchant = create(:merchant)
+      item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
+      item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
+      item3 = create(:item, name: "matcha", unit_price: 3.00, merchant_id: merchant.id)
+
+      expect(Item.search_min_max_price(4.00, 5.00)).to_not eq([item1, item2, item3])
     end
   end
 end

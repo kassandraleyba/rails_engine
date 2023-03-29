@@ -24,7 +24,6 @@ class Item < ApplicationRecord
 
   def self.search_max_price(query)
     where("unit_price <= ?", query).order(:name)
-    binding.pry
   end
 
   def self.search_min_max_price(min, max)
