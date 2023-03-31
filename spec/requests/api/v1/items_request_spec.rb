@@ -175,7 +175,6 @@ describe "Items API" do
     end
 
     it "cannot find a min price if it doesn't exist" do
-      # this is failing in postman
       merchant = create(:merchant)
       item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
       item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)
@@ -208,7 +207,6 @@ describe "Items API" do
     end
 
     it "cannot find a max price if it doesn't exist" do
-      # this is failing in postman
       merchant = create(:merchant)
       item1 = create(:item, name: "tea", unit_price: 1.00, merchant_id: merchant.id)
       item2 = create(:item, name: "coffee", unit_price: 2.00, merchant_id: merchant.id)

@@ -37,7 +37,7 @@ class Api::V1::Item::SearchController < ApplicationController
   end
 
   def search_item_price_max
-    item = Item.search_max_price(params[:max_price])
+    item = Item.search_max_price(params[:max_price]) 
 
     if item.empty?
       render json: { errors: "Invalid Search" }, status: 400
@@ -47,6 +47,7 @@ class Api::V1::Item::SearchController < ApplicationController
   end
 
   def search_item_price_min_max
+    puts "search_item_price_min_max called"
     item = Item.search_min_max_price(params[:min_price], params[:max_price])
 
     if item.empty?
@@ -55,4 +56,5 @@ class Api::V1::Item::SearchController < ApplicationController
       render json: ItemSerializer.new(item)
     end
   end
+  puts "search_item_price_min_max finished"
 end
