@@ -20,7 +20,7 @@ class Api::V1::Item::SearchController < ApplicationController
   def search_item_name
     item = Item.search_by_name(params[:name])
     if item.nil?
-      render json: { errors: "Invalid Search" }, status: 400
+      render json: { data: {}}, status: 400
     else
       render json: ItemSerializer.new(item)
     end

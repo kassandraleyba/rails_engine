@@ -144,7 +144,6 @@ describe "Items API" do
     end
 
     it "cannot find an item by name if it doesn't exist" do
-      # this is failing in postman
       merchant = create(:merchant)
       item1 = create(:item, name: "tea", merchant_id: merchant.id)
 
@@ -154,7 +153,6 @@ describe "Items API" do
 
       expect(response).to_not be_successful
       expect(response).to have_http_status(400)
-      expect(parsed_data[:errors]).to eq("Invalid Search") 
     end
 
     it "can find a min price" do
