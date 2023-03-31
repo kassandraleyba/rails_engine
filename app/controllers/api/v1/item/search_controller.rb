@@ -6,12 +6,12 @@ class Api::V1::Item::SearchController < ApplicationController
     #conditional statement to render json
     if params[:name]
       search_item_name
+    elsif params[:min_price] && params[:max_price]
+      search_item_price_min_max
     elsif params[:min_price]
       search_item_price_min
     elsif params[:max_price]
       search_item_price_max
-    elsif params[:min_price] && params[:max_price]
-      search_item_price_min_max
     else
       render json: { errors: "Invalid Search" }, status: 400
     end
